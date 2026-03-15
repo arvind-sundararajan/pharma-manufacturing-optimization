@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:13.4
+    environment:
+      - POSTGRES_DB=pharma_db
+      - POSTGRES_USER=pharma_user
+      - POSTGRES_PASSWORD=pharma_password
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  app:
+    build: .
+    environment:
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=pharma_db
+      - DB_USER=pharma_user
+      - DB_PASSWORD=pharma_password
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+
+volumes:
+  db-data:
