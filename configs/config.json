@@ -1,0 +1,1 @@
+{"database":{"host":"localhost","port":5432,"username":"pharma_user","password":"pharma_password","database":"pharma_db"},"message_broker":{"host":"localhost","port":5672,"username":"guest","password":"guest"},"optimization":{"algorithm":"linear_programming","solver":"glpk"}}
